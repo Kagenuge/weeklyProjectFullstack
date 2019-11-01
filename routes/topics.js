@@ -1,14 +1,45 @@
 const express = require('express');
-const fs = require('fs');
-const bodyParser = require('body-parser');
-const parser = bodyParser.urlencoded({ extended: true });
 const router = express.Router();
+const dbService = require('./topicservice');
+
+router.get('/api/topics', function (req, res, next) {
+  dbService.getAll(req, results => {
+    res.json(results);
+  });
+});
+
+router.get('/api/topics/:id', function (req, res, next) {
+  dbService.getById(req, results => {
+    res.json(results);
+  });
+});
+
+router.post('/api/topics', function(req,res){
+  dbService.createPost(req, results => {
+    res.json(results);
+  });
+});
+
+router.delete('/api/topics/:id', function (req, res, next) {
+  dbService.deletePost(req, results => {
+    res.json(results);
+  });
+});
+
+router.put('/api/topics/:id', function (req, res, next) {
+  dbService.updatePost(req, results => {
+    res.json(results);
+  });
+});
+
+module.exports = router;
+
 
 /* router.get('/', function(req, res, next) {
   res.render('index', { title: 'This is not the main page' });
 }); */
 
-var entries = [];
+/* var entries = [];
 
 router.get('/api/topics', parser, function (req, res) {
   try {
@@ -51,5 +82,4 @@ router.post('/api/topics', parser, function (req, res) {
   console.log('I updated material.json with a new entry');
   console.log('I updated {entries} -object with new data!');
 })
-
-module.exports = router;
+ */
