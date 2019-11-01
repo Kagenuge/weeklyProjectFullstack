@@ -47,8 +47,8 @@ $('#submit').on('click', function (e) {
     $('#blog').empty();
     fetch('http://localhost:3000/api/topics', postBody)
       .then(res => res.json())
-      .then(getData())
   }
+  setTimeout(function () { getData(); }, 200);
 })
 
 const getData = () => {
@@ -98,16 +98,15 @@ const getData = () => {
 };
 
 function deletePost(event) {
+  $('#blog').empty();
   const id = event.substring(3);
-  console.log(id);
   fetch(`http://localhost:3000/api/topics/${id}`, {
     method: 'DELETE',
     headers: { 'content-type': 'application/json' },
     body: JSON.stringify({ id })
   })
     .then(res => res.json())
-    .then(getData())
     .catch((err) => console.log(err))
+    setTimeout(function () { getData(); }, 200);
 };
-
 getData();
