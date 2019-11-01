@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title>Learning Progress</title>
+  <link rel="stylesheet" href="./stylesheets/style.css">
+</head>
+
+<body>
+  <header>
+    <p id="time"></p>
+    <h2>Learning Diary</h2>
+  </header>
+  <div id="wrapper">
+    <form>
+      <b>Topic:</b> <input type="text" name="topic" id="topic" required="required"> <br>
+      Title: <input type="text" name="title" id="title"> <br>
+      Description: <input type="text" name="description" id="description"> <br>
+      Time To Master: <input type="text" name="timetm" id="ttm"> <br>
+      Time Spent: <input type="text" name="timeS" id="timeS"> <br>
+      Source: <input type="text" name="src" id="src"> <br>
+      Started Learning on: <input type="date" name="startedL" id="startedL"> <br>
+      In Progress: <input type="checkbox" name="inProd" id="inProg"> <br>
+      Completion Date: <input type="date" name="compDate" id="compDate"> <br>
+      <button id="submit">Submighto?</button>
+    </form>
+    <h2 id="entriesT">Diary Entries</h2>
+    <fieldset id="blogfield">
+      <div id="blog"></div>
+    </fieldset>
+  </div>
+  <div id="info"></div>
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
+  <script src="./javascripts/RESTScript.js"></script>
+</body>
+
+</html>
