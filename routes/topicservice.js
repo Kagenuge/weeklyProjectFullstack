@@ -47,14 +47,14 @@ function createPost(req, callback) {
   });
 };
 
-function deletePost(req) {
+function deletePost(req, callback) {
   const id = parseInt(req.params.id);
 
-  pool.query('DELETE FROM users WHERE id = $1', [id], (error, results) => {
+  pool.query('DELETE FROM topics WHERE id = $1', [id], (error, results) => {
     if (error) {
       throw error
     }
-    response(`User deleted with ID: ${id}`);
+    callback(`User deleted with ID: ${id}`);
   })
 };
 
